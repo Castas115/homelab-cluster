@@ -1,0 +1,18 @@
+# pc1 has two cores. A pod with no requests is scheduled as if it were free and
+# a pod with no limits can starve everything else, so every namespace gets
+# defaults. Anything a workload declares itself still wins.
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: defaults
+  namespace: media
+spec:
+  limits:
+    - type: Container
+      defaultRequest:
+        cpu: 50m
+        memory: 64Mi
+      default:
+        memory: 512Mi
+      max:
+        memory: 3Gi
