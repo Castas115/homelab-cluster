@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: media
+  name: music
 ---
 apiVersion: v1
 kind: Namespace

@@ -1,11 +1,8 @@
-# pc1 has two cores. A pod with no requests is scheduled as if it were free and
-# a pod with no limits can starve everything else, so every namespace gets
-# defaults. Anything a workload declares itself still wins.
 apiVersion: v1
 kind: LimitRange
 metadata:
   name: defaults
-  namespace: media
+  namespace: music
 spec:
   limits:
     - type: Container
