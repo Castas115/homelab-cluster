@@ -41,7 +41,7 @@ your current context alone. Then:
 - [ ] Improve networking switch 1 to 2.5 gigabit 
 
 ## projects
-- [-] navidrome
+- [/] navidrome
 - [ ] AdGuard Home
 - [ ] Actual Budget
 - [ ] Tailscale alternative
