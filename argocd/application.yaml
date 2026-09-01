@@ -17,3 +17,24 @@ spec:
       selfHeal: true
     syncOptions:
       - ServerSideApply=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster
+  namespace: music
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Castas115/navidrome.git
+    targetRevision: main
+    path: k8s/
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
