@@ -6,3 +6,4 @@ resources:
   - storageclass.yaml
   - limits.yaml
   - traefik.yaml
+  - https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.36.0/controller.yaml
