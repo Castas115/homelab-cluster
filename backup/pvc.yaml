@@ -9,4 +9,4 @@ spec:
   storageClassName: local-path-retain
   resources:
     requests:
-      storage: 24Gi
+      storage: 50Gi
