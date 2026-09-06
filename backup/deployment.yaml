@@ -41,8 +41,7 @@ spec:
               mountPath: /auth
               readOnly: true
           livenessProbe:
-            httpGet:
-              path: /
+            tcpSocket:
               port: http
             initialDelaySeconds: 10
             periodSeconds: 30
