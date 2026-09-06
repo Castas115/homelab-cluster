@@ -17,12 +17,15 @@ your current context alone. Then:
 ## cluster
 - [ ] Add 2 worker nodes
 - [ ] Create NAS
-- [ ] Deploy with Argo CD
+- [x] Deploy with Argo CD
+- [ ] reverse proxy
 - [ ] Improve networking switch 1 to 2.5 gigabit 
 
 ## projects
-- [/] navidrome
+- [x] navidrome
+- [/] backup system
 - [ ] AdGuard Home
 - [ ] Actual Budget
 - [ ] Tailscale alternative
 - [ ] Jellyfin
+- [ ] Forgejo (lightweight gitlab alternative)
