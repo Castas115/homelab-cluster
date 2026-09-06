@@ -24,7 +24,7 @@ spec:
             - name: PASSWORD_FILE
               value: /auth/.htpasswd
             - name: OPTIONS
-              value: --private-repos
+              value: --private-repos --max-size 53687091200
           ports:
             - name: http
               containerPort: 8000
