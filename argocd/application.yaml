@@ -49,9 +49,53 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Castas115/jellyfin.git
+    repoURL: https://github.com/Castas115/media-server.git
     targetRevision: main
-    path: k8s/
+    path: k8s/jellyfin/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: media
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: radarr
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Castas115/media-server.git
+    targetRevision: main
+    path: k8s/radarr/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: media
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sonarr
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Castas115/media-server.git
+    targetRevision: main
+    path: k8s/sonarr/
   destination:
     server: https://kubernetes.default.svc
     namespace: media
