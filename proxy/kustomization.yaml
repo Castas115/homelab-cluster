@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ingress-jellyfin.yaml
+  - ingress-navidrome.yaml
+  - ingress-radarr.yaml
+  - ingress-sonarr.yaml
+  - ingress-prowlarr.yaml
+  - ingress-qbittorrent.yaml
