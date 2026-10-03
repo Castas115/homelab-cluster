@@ -15,17 +15,17 @@ your current context alone. Then:
 # Roadmap
 
 ## cluster
-- [ ] Add 2 worker nodes
+- [x] Add 2 worker nodes
 - [ ] Create NAS
 - [x] Deploy with Argo CD
-- [ ] reverse proxy
+- [x] reverse proxy
 - [ ] Improve networking switch 1 to 2.5 gigabit 
 
 ## projects
 - [x] navidrome
-- [/] backup system
-- [ ] AdGuard Home
+- [x] backup system
+- [x] AdGuard Home
+- [x] Jellyfin
 - [ ] Actual Budget
 - [ ] Tailscale alternative
-- [ ] Jellyfin
 - [ ] Forgejo (lightweight gitlab alternative)
