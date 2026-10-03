@@ -1,16 +1,81 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cluster
+  name: root
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/Castas115/homelab-cluster.git
     targetRevision: main
-    path: .
+    path: argocd/
   destination:
     server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: base
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Castas115/homelab-cluster.git
+    targetRevision: main
+    path: base/
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: backup
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Castas115/homelab-cluster.git
+    targetRevision: main
+    path: backup/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: backup
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: adguard
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Castas115/homelab-cluster.git
+    targetRevision: main
+    path: adguard/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: adguard
   syncPolicy:
     automated:
       prune: true
