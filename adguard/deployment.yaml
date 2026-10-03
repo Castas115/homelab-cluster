@@ -21,7 +21,7 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: adguard
-          image: adguard/adguardhome:v0.108.0
+          image: adguard/adguardhome:v0.107.79
           resources:
             requests:
               cpu: 50m
