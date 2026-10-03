@@ -19,6 +19,20 @@ spec:
         kubernetes.io/hostname: pi
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
+      initContainers:
+        - name: seed-config
+          image: busybox:1.37
+          command:
+            - sh
+            - -c
+            - "test -f /conf/AdGuardHome.yaml || cp /seed/AdGuardHome.yaml /conf/AdGuardHome.yaml"
+          volumeMounts:
+            - name: data
+              mountPath: /conf
+              subPath: conf
+            - name: seed
+              mountPath: /seed
+              readOnly: true
       containers:
         - name: adguard
           image: adguard/adguardhome:v0.107.79
@@ -44,3 +58,6 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: adguard-data
+        - name: seed
+          secret:
+            secretName: adguard-seed-config

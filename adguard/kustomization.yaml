@@ -4,4 +4,5 @@ namespace: adguard
 
 resources:
   - pvc.yaml
+  - sealed-seed-config.yaml
   - deployment.yaml
