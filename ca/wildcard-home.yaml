@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wildcard-home
+  namespace: kube-system
+spec:
+  secretName: wildcard-home-tls
+  duration: 2160h
+  renewBefore: 720h
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+  dnsNames:
+    - "*.home"
+    - "home"
+  issuerRef:
+    name: home-ca
+    kind: ClusterIssuer
+    group: cert-manager.io

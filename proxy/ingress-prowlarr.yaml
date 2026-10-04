@@ -5,6 +5,8 @@ metadata:
   namespace: media
 spec:
   ingressClassName: traefik
+  tls:
+    - hosts: ["prowlarr.home"]
   rules:
     - host: prowlarr.home
       http:

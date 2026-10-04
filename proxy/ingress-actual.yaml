@@ -5,6 +5,8 @@ metadata:
   namespace: actual
 spec:
   ingressClassName: traefik
+  tls:
+    - hosts: ["actual.home"]
   rules:
     - host: actual.home
       http:

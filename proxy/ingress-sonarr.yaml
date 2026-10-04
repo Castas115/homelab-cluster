@@ -5,6 +5,8 @@ metadata:
   namespace: media
 spec:
   ingressClassName: traefik
+  tls:
+    - hosts: ["sonarr.home"]
   rules:
     - host: sonarr.home
       http:

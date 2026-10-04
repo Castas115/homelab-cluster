@@ -5,6 +5,8 @@ metadata:
   namespace: media
 spec:
   ingressClassName: traefik
+  tls:
+    - hosts: ["radarr.home"]
   rules:
     - host: radarr.home
       http:
