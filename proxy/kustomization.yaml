@@ -9,3 +9,4 @@ resources:
   - ingress-sonarr.yaml
   - ingress-prowlarr.yaml
   - ingress-qbittorrent.yaml
+  - ingress-immich.yaml
