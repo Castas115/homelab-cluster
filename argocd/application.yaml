@@ -257,3 +257,25 @@ spec:
       selfHeal: true
     syncOptions:
       - ServerSideApply=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: actual-budget
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Castas115/actual-budget.git
+    targetRevision: main
+    path: k8s/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: actual
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
