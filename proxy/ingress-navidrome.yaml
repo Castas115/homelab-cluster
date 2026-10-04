@@ -5,6 +5,8 @@ metadata:
   namespace: music
 spec:
   ingressClassName: traefik
+  tls:
+    - hosts: ["navidrome.home"]
   rules:
     - host: navidrome.home
       http:

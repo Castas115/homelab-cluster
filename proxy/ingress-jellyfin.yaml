@@ -5,6 +5,8 @@ metadata:
   namespace: media
 spec:
   ingressClassName: traefik
+  tls:
+    - hosts: ["jellyfin.home"]
   rules:
     - host: jellyfin.home
       http:
