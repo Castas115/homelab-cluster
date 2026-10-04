@@ -10,3 +10,4 @@ resources:
   - ingress-prowlarr.yaml
   - ingress-qbittorrent.yaml
   - ingress-immich.yaml
+  - ingress-actual.yaml
