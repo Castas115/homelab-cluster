@@ -11,8 +11,17 @@ spec:
     algorithm: ECDSA
     size: 256
   dnsNames:
-    - "*.home"
-    - "home"
+    - home
+    - jellyfin.home
+    - navidrome.home
+    - radarr.home
+    - sonarr.home
+    - prowlarr.home
+    - qbittorrent.home
+    - argocd.home
+    - immich.home
+    - actual.home
+    - adguard.home
   issuerRef:
     name: home-ca
     kind: ClusterIssuer
