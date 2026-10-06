@@ -22,6 +22,7 @@ spec:
     - immich.home
     - actual.home
     - adguard.home
+    - auth.home
   issuerRef:
     name: home-ca
     kind: ClusterIssuer

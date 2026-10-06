@@ -11,3 +11,4 @@ resources:
   - ingress-qbittorrent.yaml
   - ingress-immich.yaml
   - ingress-actual.yaml
+  - ingress-authentik.yaml
