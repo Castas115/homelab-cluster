@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: sonarr
   namespace: media
+  annotations:
+    traefik.ingress.kubernetes.io/router.middlewares: media-authentik-forwardauth@kubernetescrd
 spec:
   ingressClassName: traefik
   tls:

@@ -12,3 +12,5 @@ resources:
   - ingress-immich.yaml
   - ingress-actual.yaml
   - ingress-authentik.yaml
+  - ingress-adguard.yaml
+  - middleware-forwardauth.yaml
