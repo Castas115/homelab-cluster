@@ -1,3 +1,8 @@
+# addAuthCookiesToResponse cookie name is derived from the forwardauth
+# provider's pk (authentik_proxy_<hash>) — if the authentik DB is ever
+# wiped/rebootstrapped, re-check it (curl the /auth/traefik endpoint
+# with a Host header for any gated app and look at Set-Cookie) and
+# update all three Middlewares below.
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
@@ -7,6 +12,8 @@ spec:
   forwardAuth:
     address: http://authentik-server.authentik.svc.cluster.local:9000/outpost.goauthentik.io/auth/traefik
     trustForwardHeader: true
+    addAuthCookiesToResponse:
+      - authentik_proxy_8fed18ce
     authResponseHeaders:
       - X-authentik-username
       - X-authentik-groups
@@ -30,6 +37,8 @@ spec:
   forwardAuth:
     address: http://authentik-server.authentik.svc.cluster.local:9000/outpost.goauthentik.io/auth/traefik
     trustForwardHeader: true
+    addAuthCookiesToResponse:
+      - authentik_proxy_8fed18ce
     authResponseHeaders:
       - X-authentik-username
       - X-authentik-groups
@@ -53,6 +62,8 @@ spec:
   forwardAuth:
     address: http://authentik-server.authentik.svc.cluster.local:9000/outpost.goauthentik.io/auth/traefik
     trustForwardHeader: true
+    addAuthCookiesToResponse:
+      - authentik_proxy_8fed18ce
     authResponseHeaders:
       - X-authentik-username
       - X-authentik-groups
