@@ -5,9 +5,14 @@ namespace: argocd
 resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/v3.5.2/manifests/install.yaml
   - application.yaml
+  - oidc-secret.yaml
 
 patches:
   - path: cmd-params-patch.yaml
     target:
       kind: ConfigMap
       name: argocd-cmd-params-cm
+  - path: cm-patch.yaml
+    target:
+      kind: ConfigMap
+      name: argocd-cm
