@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: navidrome
   namespace: music
+  annotations:
+    traefik.ingress.kubernetes.io/router.middlewares: music-authentik-forwardauth@kubernetescrd
 spec:
   ingressClassName: traefik
   tls:

@@ -6,3 +6,4 @@ resources:
   - pvc.yaml
   - sealed-seed-config.yaml
   - deployment.yaml
+  - service.yaml

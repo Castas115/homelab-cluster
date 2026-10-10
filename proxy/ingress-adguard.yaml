@@ -1,22 +1,22 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: prowlarr
-  namespace: media
+  name: adguard
+  namespace: adguard
   annotations:
-    traefik.ingress.kubernetes.io/router.middlewares: media-authentik-forwardauth@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: adguard-authentik-forwardauth@kubernetescrd
 spec:
   ingressClassName: traefik
   tls:
-    - hosts: ["prowlarr.home"]
+    - hosts: ["adguard.home"]
   rules:
-    - host: prowlarr.home
+    - host: adguard.home
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: prowlarr
+                name: adguard
                 port:
-                  number: 9696
+                  number: 3000
