@@ -8,9 +8,9 @@ metadata:
 spec:
   ingressClassName: traefik
   tls:
-    - hosts: ["adguard.home"]
+    - hosts: ["adguard.lan.home"]
   rules:
-    - host: adguard.home
+    - host: adguard.lan.home
       http:
         paths:
           - path: /

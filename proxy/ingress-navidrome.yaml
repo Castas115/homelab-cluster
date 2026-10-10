@@ -8,9 +8,9 @@ metadata:
 spec:
   ingressClassName: traefik
   tls:
-    - hosts: ["navidrome.home"]
+    - hosts: ["navidrome.lan.home"]
   rules:
-    - host: navidrome.home
+    - host: navidrome.lan.home
       http:
         paths:
           - path: /

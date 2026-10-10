@@ -8,9 +8,9 @@ metadata:
 spec:
   ingressClassName: traefik
   tls:
-    - hosts: ["jellyfin.home"]
+    - hosts: ["jellyfin.lan.home"]
   rules:
-    - host: jellyfin.home
+    - host: jellyfin.lan.home
       http:
         paths:
           - path: /

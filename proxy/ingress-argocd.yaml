@@ -6,9 +6,9 @@ metadata:
 spec:
   ingressClassName: traefik
   tls:
-    - hosts: ["argocd.home"]
+    - hosts: ["argocd.lan.home"]
   rules:
-    - host: argocd.home
+    - host: argocd.lan.home
       http:
         paths:
           - path: /

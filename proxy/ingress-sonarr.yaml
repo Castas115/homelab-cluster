@@ -8,9 +8,9 @@ metadata:
 spec:
   ingressClassName: traefik
   tls:
-    - hosts: ["sonarr.home"]
+    - hosts: ["sonarr.lan.home"]
   rules:
-    - host: sonarr.home
+    - host: sonarr.lan.home
       http:
         paths:
           - path: /
