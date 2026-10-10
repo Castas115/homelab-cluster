@@ -8,9 +8,9 @@ metadata:
 spec:
   ingressClassName: traefik
   tls:
-    - hosts: ["qbittorrent.home"]
+    - hosts: ["qbittorrent.lan.home"]
   rules:
-    - host: qbittorrent.home
+    - host: qbittorrent.lan.home
       http:
         paths:
           - path: /

@@ -23,6 +23,17 @@ spec:
     - actual.home
     - adguard.home
     - auth.home
+    - jellyfin.lan.home
+    - navidrome.lan.home
+    - radarr.lan.home
+    - sonarr.lan.home
+    - prowlarr.lan.home
+    - qbittorrent.lan.home
+    - argocd.lan.home
+    - immich.lan.home
+    - actual.lan.home
+    - adguard.lan.home
+    - auth.lan.home
   issuerRef:
     name: home-ca
     kind: ClusterIssuer

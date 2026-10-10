@@ -6,9 +6,9 @@ metadata:
 spec:
   ingressClassName: traefik
   tls:
-    - hosts: ["auth.home"]
+    - hosts: ["auth.lan.home"]
   rules:
-    - host: auth.home
+    - host: auth.lan.home
       http:
         paths:
           - path: /
