@@ -343,3 +343,24 @@ spec:
       selfHeal: true
     syncOptions:
       - ServerSideApply=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dns
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Castas115/homelab-cluster.git
+    targetRevision: main
+    path: dns/
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
