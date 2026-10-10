@@ -11,3 +11,10 @@ spec:
         memory: 64Mi
       limits:
         memory: 256Mi
+    ports:
+      web:
+        redirections:
+          entryPoint:
+            to: websecure
+            scheme: https
+            permanent: true
