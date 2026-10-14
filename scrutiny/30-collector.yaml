@@ -19,7 +19,6 @@ spec:
             - { name: COLLECTOR_API_ENDPOINT, value: "http://scrutiny.scrutiny.svc.cluster.local:8080" }
           securityContext:
             capabilities:
-              drop: ["ALL"]
               add: ["SYS_RAWIO", "SYS_ADMIN"]
           volumeMounts:
             - { name: dev, mountPath: /dev }
