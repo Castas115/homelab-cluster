@@ -1,0 +1,73 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: scrutiny-config
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes: ["ReadWriteOnce"]
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: ""
+  claimRef:
+    namespace: scrutiny
+    name: scrutiny-config
+  hostPath:
+    path: /opt/scrutiny/config
+    type: DirectoryOrCreate
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values: ["pc2"]
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: scrutiny-config
+  namespace: scrutiny
+spec:
+  accessModes: ["ReadWriteOnce"]
+  storageClassName: ""
+  volumeName: scrutiny-config
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: scrutiny-influxdb
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes: ["ReadWriteOnce"]
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: ""
+  claimRef:
+    namespace: scrutiny
+    name: scrutiny-influxdb
+  hostPath:
+    path: /opt/scrutiny/influxdb
+    type: DirectoryOrCreate
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values: ["pc2"]
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: scrutiny-influxdb
+  namespace: scrutiny
+spec:
+  accessModes: ["ReadWriteOnce"]
+  storageClassName: ""
+  volumeName: scrutiny-influxdb
+  resources:
+    requests:
+      storage: 2Gi

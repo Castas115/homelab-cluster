@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: scrutiny-collector
+  namespace: scrutiny
+spec:
+  selector:
+    matchLabels:
+      app: scrutiny-collector
+  template:
+    metadata:
+      labels:
+        app: scrutiny-collector
+    spec:
+      containers:
+        - name: collector
+          image: ghcr.io/analogj/scrutiny:latest-collector
+          env:
+            - { name: COLLECTOR_API_ENDPOINT, value: "http://scrutiny.scrutiny.svc.cluster.local:8080" }
+          securityContext:
+            capabilities:
+              drop: ["ALL"]
+              add: ["SYS_RAWIO", "SYS_ADMIN"]
+          volumeMounts:
+            - { name: dev, mountPath: /dev }
+            - { name: udev, mountPath: /run/udev, readOnly: true }
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits: { memory: 256Mi }
+      volumes:
+        - name: dev
+          hostPath:
+            path: /dev
+        - name: udev
+          hostPath:
+            path: /run/udev

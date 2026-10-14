@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scrutiny
+  namespace: scrutiny
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: scrutiny
+  template:
+    metadata:
+      labels:
+        app: scrutiny
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: pc2
+      containers:
+        - name: scrutiny
+          image: ghcr.io/analogj/scrutiny:latest-omnibus
+          ports:
+            - name: http
+              containerPort: 8080
+          volumeMounts:
+            - { name: config, mountPath: /opt/scrutiny/config }
+            - { name: influxdb, mountPath: /opt/scrutiny/influxdb }
+          resources:
+            requests: { cpu: 100m, memory: 256Mi }
+            limits: { memory: 1Gi }
+          readinessProbe:
+            httpGet: { path: /, port: http }
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /, port: http }
+            initialDelaySeconds: 30
+            periodSeconds: 30
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: scrutiny-config
+        - name: influxdb
+          persistentVolumeClaim:
+            claimName: scrutiny-influxdb
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: scrutiny
+  namespace: scrutiny
+spec:
+  selector:
+    app: scrutiny
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
