@@ -26,6 +26,6 @@ your current context alone. Then:
 - [x] backup system
 - [x] AdGuard Home
 - [x] Jellyfin
-- [ ] Actual Budget
+- [x] Actual Budget
 - [ ] Tailscale alternative
 - [ ] Forgejo (lightweight gitlab alternative)
