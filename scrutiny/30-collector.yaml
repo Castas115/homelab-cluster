@@ -18,8 +18,7 @@ spec:
           env:
             - { name: COLLECTOR_API_ENDPOINT, value: "http://scrutiny.scrutiny.svc.cluster.local:8080" }
           securityContext:
-            capabilities:
-              add: ["SYS_RAWIO", "SYS_ADMIN"]
+            privileged: true
           volumeMounts:
             - { name: dev, mountPath: /dev }
             - { name: udev, mountPath: /run/udev, readOnly: true }
