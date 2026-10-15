@@ -91,9 +91,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Castas115/homelab-cluster.git
+    repoURL: git@github.com:Castas115/homelab-dns.git
     targetRevision: main
-    path: adguard/
+    path: ./
   destination:
     server: https://kubernetes.default.svc
     namespace: adguard

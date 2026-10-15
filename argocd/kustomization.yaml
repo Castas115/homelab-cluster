@@ -6,6 +6,7 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/v3.5.2/manifests/install.yaml
   - application.yaml
   - oidc-secret.yaml
+  - repo-creds-homelab-dns-sealed.yaml
 
 patches:
   - path: cmd-params-patch.yaml
