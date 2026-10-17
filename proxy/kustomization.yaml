@@ -15,4 +15,5 @@ resources:
   - ingress-adguard.yaml
   - ingress-scrutiny.yaml
   - ingress-wger.yaml
+  - ingress-workout.yaml
   - middleware-forwardauth.yaml
