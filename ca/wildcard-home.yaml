@@ -36,6 +36,7 @@ spec:
     - auth.lan.home
     - scrutiny.lan.home
     - wger.lan.home
+    - workout.lan.home
   issuerRef:
     name: home-ca
     kind: ClusterIssuer
