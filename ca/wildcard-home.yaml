@@ -35,6 +35,7 @@ spec:
     - adguard.lan.home
     - auth.lan.home
     - scrutiny.lan.home
+    - wger.lan.home
   issuerRef:
     name: home-ca
     kind: ClusterIssuer

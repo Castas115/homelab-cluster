@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wger
+  namespace: wger
+  annotations:
+    traefik.ingress.kubernetes.io/router.middlewares: wger-authentik-forwardauth@kubernetescrd
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts: ["wger.lan.home"]
+  rules:
+    - host: wger.lan.home
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: wger
+                port:
+                  number: 80
