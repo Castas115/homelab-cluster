@@ -3,8 +3,6 @@ kind: Ingress
 metadata:
   name: wger
   namespace: wger
-  annotations:
-    traefik.ingress.kubernetes.io/router.middlewares: wger-authentik-forwardauth@kubernetescrd
 spec:
   ingressClassName: traefik
   tls:
