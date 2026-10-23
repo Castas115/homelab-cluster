@@ -38,6 +38,7 @@ spec:
     - wger.lan.home
     - workout.lan.home
     - vault.lan.home
+    - lyftr.lan.home
   issuerRef:
     name: home-ca
     kind: ClusterIssuer
