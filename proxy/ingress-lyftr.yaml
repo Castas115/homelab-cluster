@@ -3,8 +3,6 @@ kind: Ingress
 metadata:
   name: lyftr
   namespace: lyftr
-  annotations:
-    traefik.ingress.kubernetes.io/router.middlewares: lyftr-authentik-forwardauth@kubernetescrd
 spec:
   ingressClassName: traefik
   tls:
